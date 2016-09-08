@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+{{range .}}
+
+{{.Name}}<br>
+{{range .Southern.Addresss}}
+
+{{.Number}} {{.Street}} {{.City}} {{.State}} {{.Zip}}<br>
+{{end}}
+
+
+{{.Name}}<br>
+{{range .Northern.Addresss}}
+{{.Number}} {{.Street}} {{.City}} {{.State}} {{.Zip}}<br>
+  {{end}}
+{{end}}
+</body>
+</html>
