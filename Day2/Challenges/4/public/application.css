@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    margin-bottom: 60px;
+}
+.jumbotron {
+  background: url('/public/wallpaper.jpg');
+  background-size:cover;
+  background-origin: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 30em;
+}
+body > div > header > nav > div > div{
+    display: flex;
+}
