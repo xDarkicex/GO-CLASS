@@ -1,0 +1,2 @@
+$ name  = "Gentry"
+say "name"
