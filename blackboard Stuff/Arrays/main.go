@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 
-	"github.com/xDarkicex/GO-CLASS/lazy"
+	s "github.com/xDarkicex/GO-CLASS/lazy"
 )
 
 //declares the variable buffer, which holds 256 bytes.
@@ -18,9 +18,10 @@ var slicer = slice[5:10]
 var slashPos = bytes.IndexRune(slice, '/')
 
 func main() {
-	s.Say("Hello, "+s.Teacher.Name, "")
-	s.Say("I have Objectified you See (s.Teacher.Name)", "")
-	s.Say("( ͡° ͜ʖ ͡°)", "")
+	s.Say("Hello, " + s.Teacher.Name)
+	s.Teacher.Talk("Something")
+	s.Say("I have Objectified you See (s.Teacher.Name)")
+	s.Say("( ͡° ͜ʖ ͡°)")
 	//Slice of buffer
 	sliceExp := buffer[10:20]
 	for i := 0; i < len(sliceExp); i++ {
@@ -32,8 +33,8 @@ func main() {
 	//Lets do the challenge shall we
 	for index := range slice {
 		//This returns key and value but, we could do  it another way.
-		s.Say(slice[index], "")
-		s.Say(index, "")
+		s.Say(slice[index])
+		s.Say(index)
 	}
 	//Key value pair wow how cool is that
 	for index, value := range slice {
@@ -44,7 +45,7 @@ func main() {
 func addOne(sliceExp []byte) {
 	for i := range slice {
 		slice[i]++
-		s.Say(slice[i], "")
+		s.Say(slice[i])
 	}
 
 }

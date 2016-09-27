@@ -6,19 +6,23 @@ package s
 import "fmt"
 
 //Say is Say from perl because its less typing Please note I will find a better way to handle multi args
-func Say(x, y interface{}) {
-	fmt.Println(x, y)
+func Say(x ...interface{}) {
+	for _, line := range x {
+		fmt.Println(line)
+	}
 }
 
 //Person export
 type Person struct {
 	Name string
+	Talk func(x interface{})
 }
 
 //Name of teacher This also a struct literal
 var (
-	Teacher = Person{"Todd"}
-	Friend  = Person{"Caaz"}
-	Friend2 = Person{"Nina"}
+	Talk    = func(x interface{}) { fmt.Println(x) }
+	Teacher = Person{"Todd", Talk}
+	Friend  = Person{"Caaz", Talk}
+	Friend2 = Person{"Nina", Talk}
 	Friends = []string{Teacher.Name, Friend.Name, Friend2.Name}
 )
