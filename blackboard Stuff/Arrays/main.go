@@ -40,6 +40,23 @@ func main() {
 	for index, value := range slice {
 		s.Say(index, value)
 	}
+	//SCOPING
+	//Zero value of global non exported var i []byte
+	s.Say(i)
+	//[]byte value of adder before Todd notice bother are the Zero value of var i
+	s.Say(adder(i))
+	//Add Todd
+	adder([]byte(s.Teacher.Name))
+	//[]byte value after Todd
+	s.Say(adder(i))
+	s.Say("string value of adder casting")
+	s.Say(string(adder(i)))
+	s.Say("feed adder lower case Todd")
+	adder([]byte(s.Teacher2.Name))
+	s.Say("[]byte value after todd")
+	s.Say(adder(i))
+	s.Say("string value of adder casting")
+	s.Say(string(adder(i)))
 
 }
 func addOne(sliceExp []byte) {
@@ -48,4 +65,11 @@ func addOne(sliceExp []byte) {
 		s.Say(slice[i])
 	}
 
+}
+
+var i []byte
+
+func adder(x []byte) []byte {
+	i = []byte(x)
+	return i
 }

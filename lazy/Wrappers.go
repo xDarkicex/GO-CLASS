@@ -20,9 +20,10 @@ type Person struct {
 
 //Name of teacher This also a struct literal
 var (
-	Talk    = func(x ...interface{}) { fmt.Println(x) }
-	Teacher = Person{"Todd", Talk}
-	Friend  = Person{"Caaz", Talk}
-	Friend2 = Person{"Nina", Talk}
-	Friends = []string{Teacher.Name, Friend.Name, Friend2.Name}
+	Talk     = func(x ...interface{}) { fmt.Println(x) }
+	Teacher  = Person{"Todd", Talk}
+	Teacher2 = Person{"todd", Talk}
+	Friend   = Person{"Caaz", Talk}
+	Friend2  = Person{"Nina", Talk}
+	Friends  = []string{Teacher.Name, Friend.Name, Friend2.Name}
 )
