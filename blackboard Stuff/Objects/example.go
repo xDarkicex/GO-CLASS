@@ -13,5 +13,8 @@ func (p person) constructor(params ...string) person {
 	return person{name: name}
 }
 func main() {
+    //Start new instance of person
+    p := person{}
 	bob := person.constructor("Bob")
+    s.Say(bob.name)
 }

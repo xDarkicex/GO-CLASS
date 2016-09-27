@@ -1,4 +1,4 @@
-package main
+package objects
 
 import "fmt"
 
@@ -40,8 +40,10 @@ type animal interface {
 }
 
 func main() {
+    gator := gator{}
+    flamingo := flamingo{}
 	animals := []animal{
-		gator.constructor(5),
+		gator.constructor(),
 		flamingo.constructor(true),
 		flamingo.constructor(false),
 		//This should be alive

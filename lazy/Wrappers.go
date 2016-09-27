@@ -15,12 +15,12 @@ func Say(x ...interface{}) {
 //Person export
 type Person struct {
 	Name string
-	Talk func(x interface{})
+	Talk func(...interface{})
 }
 
 //Name of teacher This also a struct literal
 var (
-	Talk    = func(x interface{}) { fmt.Println(x) }
+	Talk    = func(x ...interface{}) { fmt.Println(x) }
 	Teacher = Person{"Todd", Talk}
 	Friend  = Person{"Caaz", Talk}
 	Friend2 = Person{"Nina", Talk}
