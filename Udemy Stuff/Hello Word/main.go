@@ -6,6 +6,7 @@ const (
 	name       = "Gentry"
 	programmed = true
 	lang       = "Go"
+	love       = "❤"
 )
 
 type person struct {
@@ -14,6 +15,7 @@ type person struct {
 type favLanguage struct {
 	programmer       bool
 	favoriteLanguage string
+	passion          string
 	person
 }
 
@@ -35,6 +37,6 @@ func hello() {
 		fmt.Print("I am a programmer.\n")
 	}
 	if me.favoriteLanguage == "Go" {
-		fmt.Print("I ❤ " + me.favoriteLanguage + "\n")
+		fmt.Print("I  " + me.passion + me.favoriteLanguage + "\n")
 	}
 }
