@@ -5,14 +5,25 @@ import "fmt"
 
 func main() {
 	//code here
-
+	//asking for trouble
+	//ORDER MATTERS
+	ch := make(chan bool)
+	isRecursive(10, ch)
+	//ch := make(chan bool) Dont work
+	<-ch
 }
 
 //isRecursive This demostrate Recursive functions
-func isRecursive() {
-	//code
-	fmt.Println("I am recursive")
-	isRecursive()
+func isRecursive(value int, ch chan bool) {
+	if value < 0 {
+		ch <- true
+		return
+	}
+
+	fmt.Printf("%s%d\n", "Recursion value: ", value)
+	//go goroutines
+	go isRecursive(value-1, ch)
+
 }
 
 func isntRecursive() {
