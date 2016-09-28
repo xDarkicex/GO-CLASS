@@ -30,6 +30,7 @@ func hello() {
 		},
 		programmer:       programmed,
 		favoriteLanguage: lang,
+		passion:          love,
 	}
 
 	fmt.Print("Hello, world. \nMy name is " + me.name + ".\n")
@@ -37,6 +38,6 @@ func hello() {
 		fmt.Print("I am a programmer.\n")
 	}
 	if me.favoriteLanguage == "Go" {
-		fmt.Print("I  " + me.passion + me.favoriteLanguage + "\n")
+		fmt.Print("I  " + me.passion + "  " + me.favoriteLanguage + "\n")
 	}
 }
