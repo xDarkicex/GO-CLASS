@@ -1,34 +1,27 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"io"
-	"io/ioutil"
-	"log"
 	"net"
-	"time"
 )
 
 func main() {
 	fmt.Println("Listen on: " + "0.0.0.0" + ":8080")
-
 	li, err := net.Listen("tcp", ":8080")
 	if err != nil {
 		panic(err)
 	}
-	defer li.Close()
-
 	for {
+		defer li.Close()
 		c, err := li.Accept()
 		if err != nil {
 			panic(err)
 		}
-		io.WriteString(c, fmt.Sprint("FROM SERVER: The Time is ", time.Now(), "\n"))
-		bs, err := ioutil.ReadAll(c)
-		if err != nil {
-			log.Fatalln(err)
+		s := bufio.NewScanner(c)
+		for s.Scan() {
+			ln := s.Text()
+			fmt.Println(ln)
 		}
-		fmt.Println(string(bs))
-		c.Close()
 	}
 }
