@@ -9,6 +9,18 @@ type test struct {
 	fileSpace string
 }
 
+type error interface {
+	Error() string
+}
+
+func ifErr(error interface{}) {
+	if error != nil {
+		//add what ever here for what do do in error
+		//not graceful Demonstrates what I was saying in class
+		panic(error)
+	}
+}
+
 //Tpl is template parsing thing
 var templates *template.Template
 
@@ -25,8 +37,9 @@ func main() {
 
 	//code goes here
 	err := templates.ExecuteTemplate(os.Stdout, "index.gohtml", test)
-	if err != nil {
-		panic(err)
-	}
+	ifErr(err)
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 }
