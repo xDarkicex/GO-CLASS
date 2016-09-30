@@ -11,26 +11,26 @@ type error interface {
 	ifErr() string
 }
 
-func こんにちは(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "こんにちは ジリス-!\n")
-}
-
 func ifErr(error interface{}) {
 	if error != nil {
 		//add what ever here for what do do in error
 		//not graceful but will Demonstrates what I was saying in class
-		panic(error)
+		fmt.Println(error)
 	}
 }
 func main() {
 	go willError()
 	Handler()
 }
+func こんにちは(w http.ResponseWriter, r *http.Request) {
+	//こんにちは, ジェントリー = Hello Gentry!
+	fmt.Fprintf(w, "こんにちは, ジェントリー! \n")
+}
 
 //Handler servers hello world
 func Handler() {
 	http.HandleFunc("/", こんにちは)
-	//err is special
+	//err will hold error
 	err := http.ListenAndServe("localhost:8080", nil /* no handler needed*/)
 	//err is manually set to not nil all errors under hood are strings
 	//-ROB PIKE
