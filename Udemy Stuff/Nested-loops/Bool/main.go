@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	//nested()
+
 	var v bool
 	Nests(v)
 }
