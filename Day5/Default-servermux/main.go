@@ -23,18 +23,12 @@ func (a about) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "About ME")
 }
 
-type contact int
-
-func (c contact) ServeHTTP(res http.ResponseWriter, req *http.Request) {
+func contact(){
+	ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	io.WriteString(res, "Contact information")
 }
 
 func main() {
-	var details details
-	var about about
-	var contact contact
-	var index index
-
 	http.Handle("/", index)
 	http.Handle("/details", details)
 	http.Handle("/about", about)
